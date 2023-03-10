@@ -5,7 +5,7 @@ browser = "edge"
 
 # ============================== Standard/Old Variant ======================================
 # driver = webdriver.Edge(executable_path="C:\\Offline\\browserdrivers\\msedgedriver.exe")
-driver = webdriver.Chrome(executable_path="C:\\Offline\\browserdrivers\\chromedriver.exe")
+# driver = webdriver.Chrome(executable_path="C:\\Offline\\browserdrivers\\chromedriver.exe")
 # driver = webdriver.Firefox(executable_path="C:\\Offline\\browserdrivers\\geckodriver.exe")
 
 # =============== Better Variant (Package: pip install webdriver-manager) ==================
@@ -29,6 +29,6 @@ driver.maximize_window()
 print(driver.title)
 
 
-time.sleep(10)
+time.sleep(3)
 
 driver.close()
