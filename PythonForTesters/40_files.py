@@ -41,17 +41,40 @@
 #     f.close()
 
 # ===================================================================================================================================
-# ================================================== Mit Kontext Onjekt - WITH ======================================================
+# ================================================== Mit Kontext Objekt - WITH ======================================================
 # ===================================================================================================================================
 
 # ------------------- Example -----------------------
-woerter = {"Turkey": "Türkei", "Germany": "Deutschland", "France": "Frankreich"}
+# woerter = {"Turkey": "Türkei", "Germany": "Deutschland", "France": "Frankreich"}
 
-with open("C:/Users/guemu/OneDrive/Desktop/Python/04 - Selenium STM (Youtube)/PythonForTesters/dictionary_write.txt", "w", encoding="utf-8") as f:
-    for eintrag in woerter:
-        f.write("{} {}\n".format(eintrag, woerter[eintrag]))
-# with is ensureing that the file is closed in any case
+# with open("C:/Users/guemu/OneDrive/Desktop/Python/04 - Selenium STM (Youtube)/PythonForTesters/dictionary_write.txt", "w", encoding="utf-8") as f:
+#     for eintrag in woerter:
+#         f.write("{} {}\n".format(eintrag, woerter[eintrag]))
+# # with is ensureing that the file is closed in any case
 
 # -------------- This is possible to -----------------
 # with open(".../file1.txt", "w", encoding="utf-8") as f1, open(".../file2.txt", "w", encoding="utf-8") as f2:
-    
+
+# ===================================================================================================================================
+# ================================================ WITH - Extenden Explanation ======================================================
+# ===================================================================================================================================
+
+class MeinLogfile:
+
+    def __init__(self, logfile):
+        self.logfile = logfile
+        self.f = None
+
+    def eintrag(self, text):
+        self.f.write("==> {}\n".format(text))
+
+    def __enter__(self):
+        self.f = open(self.logfile, "w")
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.f.close()
+
+
+with MeinLogfile("logfile.txt") as log:
+    log.eintrag("Hallo")
