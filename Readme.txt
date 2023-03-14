@@ -22,3 +22,10 @@ Test Data: pip install Faker
     https://pypi.org/project/Faker/
     https://faker.readthedocs.io/en/master/
     Generate Fake Testdata
+
+===================================
+
+Extensions:
+
+SelectorsHub - Addon for Browser to Locate Elements for use in Selenium
+    https://selectorshub.com/
